@@ -2,7 +2,7 @@ const express = require('express');
 //const authRoute = require('./auth.route');
 //const userRoute = require('./user.route');
 const wordListsRoute = require('./wordLists.route');
-//const classificationRoute = require('./classification.route');
+const classificationRoute = require('./classification.route');
 const docsRoute = require('./docs.route');
 const config = require('../../config/config');
 
@@ -13,14 +13,10 @@ const defaultRoutes = [
     path: '/wordlists',
     route: wordListsRoute,
   },
-  // {
-  //   path: '/auth',
-  //   route: authRoute,
-  // },
-  // {
-  //   path: '/users',
-  //   route: userRoute,
-  // },
+  {
+    path: '/classify',
+    route: classificationRoute,
+  },
 ];
 
 const devRoutes = [

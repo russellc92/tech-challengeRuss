@@ -9,13 +9,21 @@ const ApiError = require('../utils/ApiError');
  * @param {boolean} [options.caseSensitive] - exact match on case or ignore case
  * @returns {Promise<Object>}
  */
-const classify = async (sentence, options = { subWordInclusive: false, caseSensitive: true }) => {
-  if (!sentence || !sentence.length > 0) {
+const classify = async (classifyBody, options = { subWordInclusive: false, caseSensitive: true }) => {
+  console.log({ classifyBody });
+  if (!classifyBody) {
+    throw new ApiError(httpStatus.BAD_REQUEST, 'No POST request body received');
+  }
+  const userDidSupplySentence = classifyBody.sentence || classifyBody.sentence.length > 0;
+  if (!userDidSupplySentence) {
+    console.log(classifyBody.sentence.length);
     throw new ApiError(httpStatus.BAD_REQUEST, 'empty sentence');
   }
-  let classification = {};
+  let classification = { debug: classifyBody.sentence };
   // dank algo here
-  return { result: classification };
+  return {
+    result: { classy: 'test', tags: ['tagTest1', 'tagTest2'] },
+  };
 };
 
 module.exports = {
