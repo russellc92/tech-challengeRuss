@@ -3,7 +3,18 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import ClassificationList from "../../components/ClassificationList/";
 
+const useStyles = makeStyles((theme) => ({
+  root: {},
+  classy: {
+    marginTop: "30px",
+    paddingLeft: "40px",
+    paddingRight: "40px",
+  },
+}));
+
 const Classification = () => {
+  const classes = useStyles();
+
   return (
     <div
       data-testid="Classification-view"
@@ -13,10 +24,9 @@ const Classification = () => {
       <Grid /*className={classes.root}*/ container spacing={3}>
         <Grid item xs={3}></Grid>
         <Grid item xs={6}>
-          {/* <div className={classes.selecto}> */}
-          <ClassificationList />
-          {/* <div>Press Enter to submit</div>
-          </div> */}
+          <div className={classes.classy}>
+            <ClassificationList />
+          </div>
         </Grid>
         <Grid item xs={3}></Grid>
       </Grid>

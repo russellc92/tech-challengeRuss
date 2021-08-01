@@ -6,11 +6,19 @@ import { makeStyles } from "@material-ui/core/styles";
 const useStyles = makeStyles((theme) => ({
   root: {},
   selecto: {
-    marginTop: "200px",
+    marginTop: "150px",
+  },
+  hint: {
+    color: "#ffffff",
   },
 }));
 const SentenceInput = () => {
   const classes = useStyles();
+
+  /**
+   * On input.
+   * Make sure to debounce.
+   */
 
   return (
     <div
@@ -23,7 +31,7 @@ const SentenceInput = () => {
         <Grid item xs={6}>
           <div className={classes.selecto}>
             <MultiTextInput />
-            <div>Press Enter to submit</div>
+            <div className={classes.hint}>Press Enter to submit</div>
           </div>
         </Grid>
         <Grid item xs={3}></Grid>

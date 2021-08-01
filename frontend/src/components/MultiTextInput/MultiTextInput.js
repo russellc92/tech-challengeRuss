@@ -7,6 +7,9 @@ const StyledTextField = withStyles({
     width: "100%",
     "& .MuiInputBase-root": {
       color: "white",
+      minHeight: "100px",
+      // paddingTop: "14.5px",
+      // paddingBottom: "140.5px",
     },
     "& .MuiFormLabel-root": {
       color: "white",
@@ -41,10 +44,10 @@ const MultiTextInput = ({ otherProps, classes }) => {
       <StyledTextField
         id="outlined-textarea"
         label="Sentence to Classify"
-        placeholder="pist"
+        placeholder="Enter sentence to classify here!"
         multiline
         variant="outlined"
-        // className={classes.input}
+        style={{ minHeight: "100%" }}
       />
     </div>
   );
