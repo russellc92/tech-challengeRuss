@@ -1,6 +1,12 @@
 import React, { useState } from "react";
 import MultiTextInput from "../../components/MultiTextInput/MultiTextInput";
-import Grid from "@material-ui/core/Grid";
+import {
+  Grid,
+  Switch,
+  FormGroup,
+  FormControlLabel,
+  Typography,
+} from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { fetchClassification } from "../../api/classificationApi.js";
 import { useBase } from "../../context/Base";
@@ -13,6 +19,12 @@ const useStyles = makeStyles((theme) => ({
   hint: {
     color: "#ffffff",
   },
+  toggle: {
+    paddingRight: "10px",
+  },
+  toggleText: {
+    color: "#ffffff",
+  },
 }));
 
 const SentenceInput = () => {
@@ -20,10 +32,13 @@ const SentenceInput = () => {
   const [userInput, setUserInput] = useState({
     sentence: "",
     caseSensitive: true,
-    subWordInclusive: true,
+    subWordInclusive: false,
   });
   let baseProv = useBase();
 
+  const toggleChecked = (event) => {
+    setUserInput((prev) => ({ ...prev, caseSensitive: !prev.caseSensitive }));
+  };
   const handleInputChange = (event) => {
     setUserInput({ ...userInput, sentence: event.target.value });
   };
@@ -33,14 +48,13 @@ const SentenceInput = () => {
     if (!userInput?.sentence) {
       return;
     }
-
     // post userInput
     let newClassy = await classifySentence(userInput);
     // local store result to context
     if (newClassy && newClassy.result?.classy && newClassy.result?.sentence) {
       baseProv.setClassifications((oldArray) => [
-        ...oldArray,
         newClassy.result,
+        ...oldArray,
       ]);
     }
     // reset input
@@ -73,6 +87,32 @@ const SentenceInput = () => {
         <Grid item xs={3} />
         <Grid item xs={6}>
           <div className={classes.selecto}>
+            {/* <div className={classes.hint}>Case Sensitive</div> */}
+            {/* <Switch
+              size="small"
+              checked={userInput.caseSensitive}
+              //onChange={toggleChecked}
+              color="secondary"
+            /> */}
+
+            <FormGroup className={classes.toggle}>
+              <FormControlLabel
+                control={
+                  <Switch
+                    size="small"
+                    checked={userInput.caseSensitive}
+                    onChange={toggleChecked}
+                    color="secondary"
+                  />
+                }
+                label={
+                  <Typography className={classes.toggleText}>
+                    Case Sensitive
+                  </Typography>
+                }
+                labelPlacement="start"
+              />
+            </FormGroup>
             <MultiTextInput
               value={userInput.sentence}
               onInput={handleInputChange}

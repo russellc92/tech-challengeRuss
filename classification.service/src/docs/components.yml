@@ -28,14 +28,14 @@ components:
           properties:
             URGENT:
               type: string
-            SOMETHING:
+            NOTURGENT:
               type: string
             UKNOWN:
               type: string
       example:
         listA: ['the', 'cat', 'sat']
         listB: ['I', 'like', 'turtles']
-        colors: { URGENT: 'secondary', SOMETHING: 'primary', UNKNOWN: 'default' }
+        colors: { URGENT: 'secondary', NOTURGENT: 'primary', UNKNOWN: 'default' }
     User:
       type: object
       properties:

@@ -4,7 +4,7 @@ const wordList = {
   // listN
   colors: {
     URGENT: 'secondary', // this is because secondary stands out more than primary
-    SOMETHING: 'primary',
+    'NOT URGENT': 'primary',
     UNKNOWN: 'default',
   },
 };

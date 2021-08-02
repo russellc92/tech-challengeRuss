@@ -1,5 +1,6 @@
 const httpStatus = require('http-status');
 const ApiError = require('../utils/ApiError');
+const classifyText = require('../utils/classifyText');
 
 /**
  * Primary business logic to classify sentence :)
@@ -16,14 +17,13 @@ const classify = async (classifyBody, options = { subWordInclusive: false, caseS
   }
   const userDidSupplySentence = classifyBody.sentence && classifyBody.sentence.length > 0;
   if (!userDidSupplySentence) {
-    // console.log(classifyBody.sentence.length);
-
     throw new ApiError(httpStatus.BAD_REQUEST, 'empty sentence');
   }
-  // let classification = { debug: classifyBody.sentence };
-  // dank algo here
+
+  let classification = classifyText(classifyBody.sentence, options);
+
   return {
-    result: { classy: 'URGENT', sentence: classifyBody.sentence },
+    result: { classy: classification, sentence: classifyBody.sentence },
   };
 };
 
