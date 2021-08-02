@@ -28,9 +28,21 @@ docker-compose
 
 ```
 
-To run on host without docker (mac/linux only):
+To run on host without docker (mac/linux only): (instructions here are to run both in dev mode to access docs)
 
 ```
+git clone [this repo]
+cd [this repo name]
+
+cd ./classification.service/
+cp ./.env.example ./.env
+yarn install
+yarn dev
+
+cd ../frontend
+cp ./.env.example ./.env
+yarn install
+yarn start
 
 ```
 
