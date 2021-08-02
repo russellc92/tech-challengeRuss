@@ -28,7 +28,7 @@ docker-compose
 
 ```
 
-To run on host without docker (mac/linux only): (instructions here are to run both in dev mode to access docs)
+To run on host without docker (mac/linux only): (instructions here are to run both apps in dev mode to access docs)
 
 ```
 git clone [this repo]
@@ -64,6 +64,9 @@ Via Service:
 ```
 
 ### API
+
+The classification service API docs can be accessed at http://localhost:3001/v1/docs
+(when service is started in dev mode - docs disabled when prod)
 
 ### Design choices
 

@@ -54,7 +54,6 @@ const MultiTextInput = ({ otherProps, value, onInput, onSubmit }) => {
         }}
         onKeyPress={(e) => {
           if (e.key === "Enter") {
-            console.log("Enter key pressed");
             onSubmit(e);
           }
         }}

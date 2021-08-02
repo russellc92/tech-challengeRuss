@@ -51,7 +51,6 @@ const SentenceInput = () => {
     // TODO: move this try catch logic to api file
     try {
       let res = await fetchClassification(input);
-      console.log(res);
       let hasResults = res?.data?.result?.classy && res?.data?.result?.sentence;
       if (hasResults) {
         return res.data;

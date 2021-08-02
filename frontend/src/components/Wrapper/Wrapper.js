@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 // Mui
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { makeStyles, StylesProvider } from "@material-ui/core/styles";
-import { ThemeProvider } from "@material-ui/styles";
+//import { ThemeProvider } from "@material-ui/styles";
 
 const useStyles = makeStyles(
   (theme) => ({
@@ -31,12 +31,12 @@ const Wrapper = ({ theme, children }) => {
 
   return (
     <StylesProvider injectFirst>
-      <ThemeProvider theme={theme}>
-        <div className={classes.root}>
-          <CssBaseline />
-          <main className={classes.content}>{children}</main>
-        </div>
-      </ThemeProvider>
+      {/* <ThemeProvider theme={theme}> */}
+      <div className={classes.root}>
+        <CssBaseline />
+        <main className={classes.content}>{children}</main>
+      </div>
+      {/* </ThemeProvider> */}
     </StylesProvider>
   );
 };
