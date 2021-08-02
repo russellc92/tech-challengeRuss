@@ -14,15 +14,16 @@ const classify = async (classifyBody, options = { subWordInclusive: false, caseS
   if (!classifyBody) {
     throw new ApiError(httpStatus.BAD_REQUEST, 'No POST request body received');
   }
-  const userDidSupplySentence = classifyBody.sentence || classifyBody.sentence.length > 0;
+  const userDidSupplySentence = classifyBody.sentence && classifyBody.sentence.length > 0;
   if (!userDidSupplySentence) {
-    console.log(classifyBody.sentence.length);
+    // console.log(classifyBody.sentence.length);
+
     throw new ApiError(httpStatus.BAD_REQUEST, 'empty sentence');
   }
-  let classification = { debug: classifyBody.sentence };
+  // let classification = { debug: classifyBody.sentence };
   // dank algo here
   return {
-    result: { classy: 'test', tags: ['tagTest1', 'tagTest2'] },
+    result: { classy: 'URGENT', sentence: classifyBody.sentence },
   };
 };
 

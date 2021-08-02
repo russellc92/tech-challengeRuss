@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { BaseProvider } from "./context/Base";
 import { Wrapper } from "./components";
 
 // Views
@@ -11,20 +12,20 @@ const SentenceInput = React.lazy(() =>
 );
 
 /**
- * Used when Routing is implementee
+ * Used when Routing is implemented
  */
-const NotFound = React.lazy(() =>
-  import(/* webpackChunkName: "not-found" */ "./views/NotFound")
-);
+// const NotFound = React.lazy(() =>
+//   import(/* webpackChunkName: "not-found" */ "./views/NotFound")
+// );
 
 /**
  * Apply the Wrapper and base provider to the Root of the project (this is for simplicity purposes)
  */
 const RootLayout = ({ children }) => {
   return (
-    // <BaseProvider>
-    <Wrapper>{children}</Wrapper>
-    // </BaseProvider>
+    <BaseProvider>
+      <Wrapper>{children}</Wrapper>
+    </BaseProvider>
   );
 };
 

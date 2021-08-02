@@ -1,30 +1,48 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { TextField } from "@material-ui/core";
-import { withStyles } from "@material-ui/core/styles";
-
 import ClassificationItem from "../ClassificationItem";
 
-const ClassificationList = ({ otherProps, classes }) => {
-  const aaa = [
-    {
-      sentence: "dsa",
-      classi: "asd",
-    },
-  ];
+const ClassificationList = ({
+  otherProps,
+  classificationsResults,
+  classColours,
+}) => {
+  /**
+   * From the obtained list of words and colours, return correct colour.
+   *
+   * @param {string} cls
+   * @param {Object} wList
+   * @returns
+   */
+  const getClassyColour = (cls, wList) => {
+    if (!cls || !wList || !wList?.wl?.wordList?.colors) {
+      return "default";
+    }
+    return wList.wl.wordList.colors[cls];
+  };
+
   return (
     <div
       data-testid="classificationlist-component"
       className={`classificationlist-wrapper`}
       {...otherProps}
     >
-      {aaa && aaa.map((cls) => <ClassificationItem />)}
+      {classificationsResults &&
+        classificationsResults.map((cls, key) => (
+          <ClassificationItem
+            key={key}
+            sentence={cls.sentence}
+            classification={cls.classy}
+            colour={getClassyColour(cls.classy, classColours)}
+          />
+        ))}
     </div>
   );
 };
 
 ClassificationList.propTypes = {
-  //classes: PropTypes.object.isRequired,
+  classificationsResults: PropTypes.array,
+  classColours: PropTypes.object,
 };
 
 ClassificationList.defaultProps = {};

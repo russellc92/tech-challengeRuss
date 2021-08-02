@@ -34,7 +34,7 @@ const StyledTextField = withStyles({
   },
 })(TextField);
 
-const MultiTextInput = ({ otherProps, classes }) => {
+const MultiTextInput = ({ otherProps, value, onInput, onSubmit }) => {
   return (
     <div
       data-testid="multitextinput-component"
@@ -48,6 +48,16 @@ const MultiTextInput = ({ otherProps, classes }) => {
         multiline
         variant="outlined"
         style={{ minHeight: "100%" }}
+        value={value}
+        onChange={(e) => {
+          onInput(e);
+        }}
+        onKeyPress={(e) => {
+          if (e.key === "Enter") {
+            console.log("Enter key pressed");
+            onSubmit(e);
+          }
+        }}
       />
     </div>
   );

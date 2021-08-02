@@ -23,9 +23,19 @@ components:
           type: array
           items:
             type: string
+        colors:
+          type: object
+          properties:
+            URGENT:
+              type: string
+            SOMETHING:
+              type: string
+            UKNOWN:
+              type: string
       example:
         listA: ['the', 'cat', 'sat']
         listB: ['I', 'like', 'turtles']
+        colors: { URGENT: 'secondary', SOMETHING: 'primary', UNKNOWN: 'default' }
     User:
       type: object
       properties:

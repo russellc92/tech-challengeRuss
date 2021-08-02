@@ -2,6 +2,55 @@
 
 AA technical challenge. Full stack.
 
+## Solution
+
+To view a live demo of the application visit here:
+https://main.dmyj9p1z8l1pg.amplifyapp.com/
+
+### Build and run yourself
+
+Requires:
+
+- docker
+- docker-compose
+- yarn / npm
+
+If using npm rather than yarn, replace all references to "yarn" below to "npm"
+
+First, copy the ".env.example" file in "./classification.service" folder and rename to ".env".
+Do the same for the env example file in "./frontend" folder.
+
+(Docker) Perform the following:
+
+```
+git clone https://github.com/russellc92/tech-challengeRuss/
+docker-compose
+
+```
+
+To run on host without docker (mac/linux only):
+
+```
+
+```
+
+### Testing
+
+(from root directory)
+
+Via Docker:
+
+```
+docker. ......
+```
+
+Via Service:
+
+```
+    cd ./frontend/ && yarn test
+    cd ../classification.service/ && yarn test
+```
+
 ### API
 
 ### Design choices
