@@ -1,6 +1,4 @@
 const express = require('express');
-//const authRoute = require('./auth.route');
-//const userRoute = require('./user.route');
 const wordListsRoute = require('./wordLists.route');
 const classificationRoute = require('./classification.route');
 const docsRoute = require('./docs.route');

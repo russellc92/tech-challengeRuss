@@ -41,8 +41,9 @@ let setenceI = 'Nothing Nothing Nothing Nothing Nothing Nothing Nothing Nothing 
 let setenceJ =
   "This symbol is intended to give Immediate Alert the user to alert. the presence of Critical uninsulated Alert dangerous Nothing voltage within the product's Important enclosure that nothing may be of sufficient magnitude to Warning constitute a risk of electric shock to Urgent persons";
 
+let tets = 'Alert Alert Alert alert Nothing nothing nothing nothing nothing nothing nothing';
 const run = () => {
-  let a = classifyText(setenceJ, options4);
+  let a = classifyText(tets, options1);
   console.log(a);
   //assert(false);
 };
