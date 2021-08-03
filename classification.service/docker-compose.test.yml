@@ -1,6 +1,6 @@
 version: '3'
 
 services:
-  node-app:
+  classification-app:
     container_name: classification-app-test
     command: yarn test
