@@ -26,7 +26,7 @@ cd ../frontend
 cp ./.env.example ./.env
 ```
 
-(Docker) Perform the following:
+(Docker) Perform the following from the root project directory:
 
 ```
 docker-compose up
