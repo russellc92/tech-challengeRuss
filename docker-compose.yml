@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  frontend:
+    build:
+      dockerfile: ./Dockerfile.prod
+      context: ./frontend
+    image: russfrontend:prod
+    container_name: russfrontend
+    ports:
+      - 1337:80
+    env_file:
+      - ./frontend/.env
+
+  classification-app:
+    build:
+      dockerfile: ./Dockerfile
+      context: ./classification.service
+    image: classification-app
+    container_name: classification-app-dev
+    command: yarn dev -L
+    ports:
+      - "3001:3001"
+    env_file:
+      - ./classification.service/.env
